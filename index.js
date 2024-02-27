@@ -25,9 +25,23 @@
 1. Make the 3rd element in the list have yellow background color.
 2. Make all the elements in the list have bold font.*/
 
-const list = document.getElementsByClassName("fruit");
-list[2].style.backgroundColor = "yellow";
+// const list = document.getElementsByClassName("fruit");
+// list[2].style.backgroundColor = "yellow";
+
+// Array.from(list).forEach((el) => {
+//   el.style.fontWeight = "bold";
+// });
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/* 
+1. Change the color of 5th "li" tag (one with "Mango" written inside it) to blue.
+2. Make all the "li" tags italic.
+*/
+
+const list = document.getElementsByTagName("li");
+list[4].style.color = "blue";
 
 Array.from(list).forEach((el) => {
-  el.style.fontWeight = "bold";
+  el.style.fontStyle = "italic";
 });
