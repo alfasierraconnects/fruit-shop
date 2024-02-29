@@ -39,9 +39,30 @@
 2. Make all the "li" tags italic.
 */
 
-const list = document.getElementsByTagName("li");
-list[4].style.color = "blue";
+// const list = document.getElementsByTagName("li");
+// list[4].style.color = "blue";
 
-Array.from(list).forEach((el) => {
-  el.style.fontStyle = "italic";
-});
+// Array.from(list).forEach((el) => {
+//   el.style.fontStyle = "italic";
+// });
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/*
+Deliverable:
+1. Implement the code as shown in the video.
+2. Use id as query to select the basket heading and set its color to
+brown.
+3. Change the background color of even fruit items to red and
+change their text color to white.
+*/
+
+document.querySelector("#basket-heading").style.color = "brown";
+
+const list = Array.from(document.querySelectorAll(".fruit"));
+for (let i = 0; i < list.length; i++) {
+  if (!(i % 2 === 0)) {
+    list[i].style.backgroundColor = "brown";
+    list[i].style.color = "white";
+  }
+}
