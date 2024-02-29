@@ -57,12 +57,45 @@ brown.
 change their text color to white.
 */
 
-document.querySelector("#basket-heading").style.color = "brown";
+// document.querySelector("#basket-heading").style.color = "brown";
 
-const list = Array.from(document.querySelectorAll(".fruit"));
-for (let i = 0; i < list.length; i++) {
-  if (!(i % 2 === 0)) {
-    list[i].style.backgroundColor = "brown";
-    list[i].style.color = "white";
-  }
-}
+// const list = Array.from(document.querySelectorAll(".fruit"));
+// for (let i = 0; i < list.length; i++) {
+//   if (!(i % 2 === 0)) {
+//     list[i].style.backgroundColor = "brown";
+//     list[i].style.color = "white";
+//   }
+// }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/*
+Deliverables:
+1. Inside the first Div, after the main heading add a sub-heading (h3 tag) "Buy high quality organic fruits online".
+2. Make the sub-heading text italic.
+2. Inside the second Div, before the unordered list add a paragraph tag showing "Total fruits: 4".
+3. On this paragraph tag set an id of "fruits-total"
+*/
+
+// 1.
+const subHeading = document.createElement("h3");
+const subText = document.createTextNode(
+  "Buy high quality organic fruits online"
+);
+subHeading.appendChild(subText);
+document.querySelector("#header").appendChild(subHeading);
+
+// 2.
+subHeading.style.fontStyle = "italic";
+
+// 3.
+const para = document.createElement("p");
+const paraText = document.createTextNode("Total fruits : 4");
+para.appendChild(paraText);
+const secondDiv = document.getElementsByTagName("div")[1];
+const fruits = document.getElementsByClassName("fruits")[0];
+secondDiv.insertBefore(para, fruits);
+
+//4.
+para.setAttribute("id", "fruits-total");
+console.log(para);
