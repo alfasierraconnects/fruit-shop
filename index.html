@@ -13,16 +13,45 @@
       <input id="filter" type="text" placeholder="Search fruits..." />
     </div>
     <div>
+      <h2 id="basket-heading">Add Fruits</h2>
       <form>
-        <h2 id="basket-heading">Add Fruits</h2>
-        <input type="text" name="fruit" id="fruit-to-add" />
+        <div>
+          <input
+            type="text"
+            name="fruit"
+            id="fruit-to-add"
+            placeholder="fruit"
+          />
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="description"
+          />
+        </div>
         <button type="submit">Add</button>
       </form>
       <ul class="fruits">
-        <li class="fruit">Banana<button class="delete-btn">x</button></li>
-        <li class="fruit">Apple<button class="delete-btn">x</button></li>
-        <li class="fruit">Orange<button class="delete-btn">x</button></li>
-        <li class="fruit">Kiwi<button class="delete-btn">x</button></li>
+        <li class="fruit">
+          Banana
+          <p class="description">${description.value}</p>
+          <button class="delete-btn">x</button>
+        </li>
+        <li class="fruit">
+          Apple
+          <p class="description">${description.value}</p>
+          <button class="delete-btn">x</button>
+        </li>
+        <li class="fruit">
+          Orange
+          <p class="description">${description.value}</p>
+          <button class="delete-btn">x</button>
+        </li>
+        <li class="fruit">
+          Kiwi
+          <p class="description">${description.value}</p>
+          <button class="delete-btn">x</button>
+        </li>
       </ul>
     </div>
     <div id="thanks"></div>

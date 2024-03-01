@@ -131,12 +131,42 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const fruitToAdd = document.getElementById("fruit-to-add");
+  const description = document.getElementById("description");
 
   const newLi = document.createElement("li");
   if (fruitToAdd.value.trim() !== "") {
-    newLi.innerHTML =
-      fruitToAdd.value +
-      '<button class="delete-btn">x</button><button class="edit-btn">Edit</button>';
+    newLi.innerHTML = `${fruitToAdd.value}<p class="description">${description.value}</p>
+      <button class="delete-btn">x</button><button class="edit-btn">Edit</button>`;
     fruits.appendChild(newLi);
+    Array.from(document.getElementsByClassName("description")).forEach((el) => {
+      el.style.fontStyle = "italic";
+    });
   }
 });
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/*
+Deliverables:
+1. Use DOM Manipulation to add another input element inside form, before the button. This input element will take the description of the fruit.
+2. Use DOM Manipulation to show the fruit description (in italics) on screen alongwith the fruit name. This description should be shown in the next line (HINT: To show description on next line you can make use of the paragraph tag).
+3. Now, create a filter that shows only those fruits whose either name or description or both matches the entered text.
+*/
+
+Array.from(document.getElementsByClassName("description")).forEach((el) => {
+  el.style.fontStyle = "italic";
+});
+
+const filter = document.getElementById("filter");
+filter.addEventListener("keyup", search);
+function search() {
+  let searchText = filter.value.trim().toLowerCase();
+  const fruit = Array.from(document.getElementsByClassName("fruit"));
+  for (let i = 0; i < fruit.length; i++) {
+    if (fruit[i].innerText.toLowerCase().includes(searchText)) {
+      fruit[i].style.display = "flex";
+    } else {
+      fruit[i].style.display = "none";
+    }
+  }
+}
