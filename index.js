@@ -77,25 +77,66 @@ Deliverables:
 3. On this paragraph tag set an id of "fruits-total"
 */
 
-// 1.
-const subHeading = document.createElement("h3");
-const subText = document.createTextNode(
-  "Buy high quality organic fruits online"
-);
-subHeading.appendChild(subText);
-document.querySelector("#header").appendChild(subHeading);
+// // 1.
+// const subHeading = document.createElement("h3");
+// const subText = document.createTextNode(
+//   "Buy high quality organic fruits online"
+// );
+// subHeading.appendChild(subText);
+// document.querySelector("#header").appendChild(subHeading);
 
-// 2.
-subHeading.style.fontStyle = "italic";
+// // 2.
+// subHeading.style.fontStyle = "italic";
 
-// 3.
-const para = document.createElement("p");
-const paraText = document.createTextNode("Total fruits : 4");
-para.appendChild(paraText);
-const secondDiv = document.getElementsByTagName("div")[1];
-const fruits = document.getElementsByClassName("fruits")[0];
-secondDiv.insertBefore(para, fruits);
+// // 3.
+// const para = document.createElement("p");
+// const paraText = document.createTextNode("Total fruits : 4");
+// para.appendChild(paraText);
+// const secondDiv = document.getElementsByTagName("div")[1];
+// const fruits = document.getElementsByClassName("fruits")[0];
+// secondDiv.insertBefore(para, fruits);
 
-//4.
-para.setAttribute("id", "fruits-total");
-console.log(para);
+// //4.
+// para.setAttribute("id", "fruits-total");
+// console.log(para);
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+/*
+1. In each "li" after the delete button add an edit button with class 'edit-btn'.
+2. Now, implement the add and delete functionality
+*/
+
+//added Edit Button
+const edit = document.createElement("button");
+edit.textContent = "Edit";
+edit.className = "edit-btn";
+
+const fruit = Array.from(document.getElementsByClassName("fruit"));
+fruit.forEach((el) => {
+  el.appendChild(edit.cloneNode(true));
+});
+
+//implemented delete btn functionality
+const fruits = document.querySelector(".fruits");
+fruits.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete-btn")) {
+    event.target.parentElement.remove();
+  }
+});
+
+//implemented add functionality
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const fruitToAdd = document.getElementById("fruit-to-add");
+
+  const newLi = document.createElement("li");
+  if (fruitToAdd.value.trim() !== "") {
+    newLi.innerHTML =
+      fruitToAdd.value +
+      '<button class="delete-btn">x</button><button class="edit-btn">Edit</button>';
+    fruits.appendChild(newLi);
+  }
+});
